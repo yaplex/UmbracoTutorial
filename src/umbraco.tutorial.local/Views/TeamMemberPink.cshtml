@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TeamMember>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterLayout.cshtml";
+}
+<div style="background:pink">
+
+<h1>@Umbraco.Field("memberName")</h1>
+@Html.Partial("CustomText", Umbraco.Field("memberDesciption"))
+
+@{
+   var image = Umbraco.TypedMedia(Umbraco.Field("memberPhoto").ToString());
+   <img src="@image.Url" style="max-width:300px">
+}
+</div>
